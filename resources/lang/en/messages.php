@@ -1,0 +1,9 @@
+<?php 
+
+
+
+return [
+
+    "portfolio" => 'PORTFOLIOS'
+
+];

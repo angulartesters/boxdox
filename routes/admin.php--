@@ -1,0 +1,75 @@
+<?php
+
+	use Illuminate\Support\Facades\Route;
+
+
+Route::get('/admin', function(){
+	return 'welcome admin';
+});
+
+
+
+// Route::namespace('Front')->group(function(){
+// 	Route::get('users', 'UsersController@index');
+// });
+
+
+// Route::prefix('users')->group(function(){
+// 	// Route::get('/', function(){
+// 	// 	return 'something new';
+// 	// });
+
+// 	Route::get('create', 'UsersController@index');
+// });
+
+
+// Route::group(['prefix'=>'users', 'middleware'=>'auth'], function(){
+// 	Route::get('/', function(){
+// 		return 'heythere brown cow';
+// 	});
+// });
+
+
+Route::get('/goto', function(){
+	return 'how are you!';
+})->middleware('auth');
+
+
+// Route::get('login', function(){
+// 	return 'you must be logged in';
+// })->name('login');
+
+Route::group(['namespace'=>'Admin'], function(){
+	Route::get('showusers1', 'AnotherController@showUsers1');
+	Route::get('showusers2', 'AnotherController@showUsers2');
+	Route::get('showusers3', 'AnotherController@showUsers3');
+	Route::get('showusers4', 'AnotherController@showUsers4');
+
+});
+
+
+
+Route::resource('news', 'NewsController');
+
+
+
+Route::get('/', 'NewsController@index');
+
+Route::get('/heythere/{id}', function(){
+	return 'welcome back here there';
+})->name('h');	
+
+
+// Route::get('/landingpage', 'LandingController@showPage');
+
+Route::get('/landingpage/{locale?}', 'LandingController@index');
+
+
+
+Route::get('/landingpage/aboutus', 'LandingController@aboutus');
+
+
+Route::get('/checking', 'LandingController@checksomething');
+
+
+Route::get('/anothers', 'DirectivesController@index');
