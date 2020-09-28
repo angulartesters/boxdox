@@ -61,7 +61,6 @@ class HubspotApiController extends Controller
 	    
 	    
 	    $post_json = json_encode($creds);
-        //$hpkey = "c800f967-3797-4f26-a7c4-78805b1399d2";
         //$endpoint = 'https://api.hubapi.com/contacts/v1/contact?hapikey='.$hpkey;
         $client = new Client([
             'headers' => ['Content-Type' => 'application/json']
